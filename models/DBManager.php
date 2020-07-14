@@ -17,7 +17,7 @@ class DBManager
             self::$connection= new PDO("mysql:host=".self::$servername.";dbname=danish_cms_db", self::$username, self::$password);
             self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            echo("Connection Successful");
+            //echo("Connection Successful");
         }
         catch (PDOException $e)
         {
