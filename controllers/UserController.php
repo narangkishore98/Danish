@@ -36,4 +36,28 @@ if($_SERVER['REQUEST_METHOD']=="POST")
        $user->save();
         header("Location:../admin/users.php?userCreated=true");
     }
+
+    if(isset($_POST['d_id_u']))
+    {
+        $name = $_POST['d_name_u'];
+        $email = $_POST['d_email_u'];
+        $password = $_POST['d_password_u'];
+        $username = $_POST['d_username_u'];
+        $level = $_POST['d_level_u'];
+        $id = $_POST['d_id_u'];
+
+        $user = User::getUserById($id);
+
+        $user->setUsername($username);
+        $user->setPassword($email);
+        $user->setPassword($password);
+        $user->setLevel($level);
+        $user->setName($name);
+
+
+        echo($level);
+        $user->save();
+
+        header('Location:../admin/users.php?userUpdated=true');
+    }
 }

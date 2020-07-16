@@ -108,10 +108,10 @@ class User
                 $conn = DBManager::getConnection();
 
 
-                echo("UPDATE users SET (d_name, d_email, d_username, d_password, d_level) VALUES ('$this->name', '$this->email', '$this->username','$this->password', '$this->level' ) WHERE d_id = $this->id");
+                //echo("UPDATE users SET d_name = '$this->name', d_email = '$this->email', d_username = '$this->username', d_password = '$this->password', d_level = '$this->level') WHERE d_id = $this->id");
                 $new = $conn->exec("UPDATE users SET d_name = '$this->name', d_email = '$this->email', d_username = '$this->username', d_password = '$this->password', d_level='$this->level' WHERE d_id = $this->id");
                 echo("Update Successful");
-                DBManager::close();
+                //DBManager::close();
             }
             catch (PDOException $e)
             {

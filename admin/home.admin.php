@@ -10,20 +10,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
+    <title>Pages - Home - Admin - Danish CMS</title>
 
     <!-- Custom fonts for this template-->
     <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
@@ -49,7 +42,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-            <a class="nav-link" href="dashboard.php.php">
+            <a class="nav-link" href="index.html">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
@@ -340,65 +333,171 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Users</h1>
+                <h1 class="h3 mb-4 text-gray-800">Pages - Home</h1>
 
 
                 <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6  style="display: inline;" class="m-0 font-weight-bold text-primary">User Type: &nbsp; <a href="#" class="btn btn-light btn-sm">Admin</a> <a href="#" class="btn btn-secondary btn-sm">Moderator</a> </h6>     <button data-toggle="modal" data-target="#addUser" class="btn btn-circle btn-dark btn-sm" style="margin-left: 70%;"><i  class="fas fa-user-plus"></i></button>
-                     </div>
-                    <div class="card-body">
-                        <?php if(isset($_GET['userCreated'])){ echo("<div class='alert alert-success'>New User Created</div>"); } ?>
-                        <?php if(isset($_GET['userUpdated'])){ echo("<div class='alert alert-warning'> User Updated</div>"); } ?>
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Username</th>
-                                    <th>Password</th>
-                                    <th>Delete</th>
-                                    <th>Update</th>
-                                </tr>
-                                </thead>
-                                <tfoot>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Username</th>
-                                    <th>Password</th>
-                                    <th>Delete</th>
-                                    <th>Update</th>
-                                </tr>
-                                </tfoot>
-                                <tbody>
-                                    <?php
-                                        require ('../models/User.php');
-                                        $users = User::getUsers();
-                                        foreach ($users as $user)
-                                    {
-                                        ?>
-                                        <tr <?php if($user->getLevel() == "M"){ echo("class='bg-secondary text-white'");}?>  >
-                                            <td id="nameCellFor<?php echo($user->getId());?>"><?php echo($user->getName()) ?></td>
-                                            <td id="emailCellFor<?php echo($user->getId());?>"><?php echo($user->getEmail()) ?></td>
-                                            <td id="usernameCellFor<?php echo($user->getId());?>"><?php echo($user->getUsername()) ?></td>
-                                            <td id="passwordCellFor<?php echo($user->getId());?>"><?php echo($user->getPassword()) ?></td>
-                                            <td><a href="../controllers/UserController.php?deleteUser=true&d_id=<?php echo($user->getId()) ?>" class="btn btn-sm btn-circle btn-danger"><i class="fas fa-trash"></i> </a> </td>
-                                            <td><a data-toggle="modal" id="<?php echo($user->getId());?>"  class="btn btn-sm btn-circle btn-warning user-update-click text-white"><i class="fas fa-user-edit"></i> </a> </td>
-                                            <span hidden="hidden" id="levelCellFor<?php echo($user->getId());?>"><?php echo($user->getLevel()); ?></span>
+                    <!-- Card Header - Accordion -->
+                    <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            Slider Elements
+                        </h6>
+                    </a>
+                    <!-- Card Content - Collapse -->
+                    <div class="collapse show" id="collapseCardExample">
+                        <div class="card-body">
 
+
+                         <form action="../controllers/HomeController.admin.php" method="post" enctype="multipart/form-data">
+                             <div class="row">
+                                 <div class="col-md-3">
+                                     <input type="text" class="form-control" name="d_title" required placeholder="Title"/>
+                                 </div>
+                                 <div class="col-md-3">
+                                     <input type="text" class="form-control" name="d_subtitle"  required placeholder="Subtitle"/>
+                                 </div>
+                                 <div class="col-md-3">
+                                     <input type="file" class="form-control-file" required name="d_image" placeholder="Title"/>
+                                 </div>
+                                 <div class="col-md-3">
+                                     <input type="submit" value="Add Slider"  required name="submit" class="btn btn-dark btn-block"/>
+                                 </div>
+                             </div>
+                         </form>
+
+                            <hr/>
+
+
+
+
+
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Subtitle</th>
+                                            <th>Image</th>
+                                            <th>Delete</th>
+                                            <th>Update</th>
                                         </tr>
-                                    <?php
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
+                                        </thead>
+                                        <tfoot>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Subtitle</th>
+                                            <th>Image</th>
+                                            <th>Delete</th>
+                                            <th>Update</th>
+                                        </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <?php
+
+                                                require ("../models/Slider.php");
+                                                $sliders = Slider::getSliders();
+
+                                                foreach($sliders as $slider)
+                                                {
+                                                    ?>
+<tr>
+                                                    <td><?php echo( $slider->getTitle());?></td>
+                                                    <td><?php echo( $slider->getSubtitle());?></td>
+                                                    <td><img src="../static/img/<?php echo( $slider->getImage());?>" width="100px"/> </td>
+                                                    <td><a class="btn btn-sm btn-circle btn-danger text-white" href="../controllers/HomeController.admin.php?deleteSlider=true&d_id=<?php echo($slider->getId());?>"><i class="fas fa-trash" </a> </td>
+                                                    <td><a class="btn btn-sm btn-circle btn-warning text-white" ><i class="fas fa-edit"></i> </a> </td>
+</tr>
+                                                    <?php
+                                                }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         </div>
                     </div>
                 </div>
 
-            </div>
+
+
+
+
+
+
+
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Accordion -->
+                    <a href="#welcomeText" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            Welcome Text
+                        </h6>
+                    </a>
+                    <!-- Card Content - Collapse -->
+                    <div class="collapse show" id="welcomeText">
+                        <div class="card-body">
+
+
+
+
+
+
+
+                            <div class="card-body">
+
+                                <form action="../controllers/HomeController.admin.php"  METHOD="POST">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <textarea class="form-control" name="d_welcome_text">Some Text Will Appear here.</textarea>
+                                        </div>
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4">
+                                            <input type="submit" class="btn btn-dark mt-5" value="Change Welcome Text"/>
+                                        </div>
+                                        <div class="col-md-4"></div>
+                                    </div>
+                                </form>
+
+                            </div>
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
             <!-- /.container-fluid -->
 
         </div>
@@ -408,7 +507,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2020</span>
+                    <span>Copyright &copy; Danish CMS 2020</span>
                 </div>
             </div>
         </footer>
@@ -444,87 +543,6 @@
     </div>
 </div>
 
-
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form method="post" action="../controllers/UserController.php">
-
-                <div class="modal-header bg-dark text-white">
-                <h5 class="modal-title " id="exampleModalLabel">Add User</h5>
-                <button type="button text-white" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-        </div>
-        <div class="modal-body">
-
-                <input type="text" class="form-control mb-2" placeholder="Full Name" name="d_name"/>
-                <input type="text" class="form-control mb-2" placeholder="Email" name="d_email"/>
-                <input type="text" class="form-control mb-2" placeholder="Username" name="d_username"/>
-                <input type="password" class="form-control mb-2" placeholder="Password" name="d_password"/>
-                <select class="form-control mb-2" name="d_level">
-                    <option value="A">Admin</option>
-                    <option value="M">Moderator</option>
-                </select>
-
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-dark">Add User</button>
-        </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-
-
-
-<!-- Update Modal -->
-
-
-<div class="modal fade" id="updateUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form method="post" action="../controllers/UserController.php">
-
-                <div class="modal-header bg-dark text-white">
-                    <h5 class="modal-title " id="exampleModalLabel">Update User</h5>
-                    <button type="button text-white" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    <input type="hidden" id="updateId" name="d_id_u" value=""/>
-                    <input type="text" class="form-control mb-2" id="updateName" placeholder="Full Name" name="d_name_u"/>
-                    <input type="text" class="form-control mb-2" id="updateEmail" placeholder="Email" name="d_email_u"/>
-                    <input type="text" class="form-control mb-2" id="updateUsername" placeholder="Username" name="d_username_u"/>
-                    <input type="password" class="form-control mb-2" id="updatePassword" placeholder="Password" name="d_password_u"/>
-                    <select class="form-control mb-2" name="d_level_u" id="updateLevel">
-                        <option value="A">Admin</option>
-                        <option value="M">Moderator</option>
-                    </select>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-dark">Update User</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-
-
-
-
 <!-- Bootstrap core JavaScript-->
 <script src="../static/vendor/jquery/jquery.min.js"></script>
 <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -534,43 +552,6 @@
 
 <!-- Custom scripts for all pages-->
 <script src="../static/js/sb-admin-2.min.js"></script>
-
-<script src="../static/js/demo/datatables-demo.js"></script>
-
-
-
-<script>
-
-    //Script for opening Update Modal
-
-    $(document).ready(function(){
-        $(".user-update-click").click(function() {
-
-            let id = $(this).attr("id");
-            let name = $("#nameCellFor"+id).text();
-            let email = $("#emailCellFor"+id).text();
-            let username = $("#usernameCellFor"+id).text();
-            let password = $("#passwordCellFor"+id).text();
-            let level = $("#levelCellFor"+id).text();
-
-
-            console.log(email);
-
-            $("#updateEmail").val(email);
-            $("#updateLevel").val(level);
-            $("#updateName").val(name);
-            $("#updatePassword").val(password);
-            $("#updateUsername").val(username);
-            $("#updateId").val(id);
-
-            $("#updateUser").modal('show');
-
-
-        });
-    });
-
-</script>
-
 
 </body>
 
