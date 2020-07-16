@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +13,8 @@
 
     <!-- Custom fonts for this template-->
     <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
@@ -57,7 +57,8 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+               aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Components</span>
             </a>
@@ -72,11 +73,13 @@
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+               aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
                 <span>Utilities</span>
             </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Custom Utilities:</h6>
                     <a class="collapse-item" href="utilities-color.html">Colors</a>
@@ -97,11 +100,13 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item active">
-            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+               aria-controls="collapsePages">
                 <i class="fas fa-fw fa-folder"></i>
                 <span>Pages</span>
             </a>
-            <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
+                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Login Screens:</h6>
                     <a class="collapse-item" href="login.html">Login</a>
@@ -157,7 +162,8 @@
                 <!-- Topbar Search -->
                 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                     <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                               aria-label="Search" aria-describedby="basic-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="button">
                                 <i class="fas fa-search fa-sm"></i>
@@ -171,14 +177,18 @@
 
                     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                     <li class="nav-item dropdown no-arrow d-sm-none">
-                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-search fa-fw"></i>
                         </a>
                         <!-- Dropdown - Messages -->
-                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                             aria-labelledby="searchDropdown">
                             <form class="form-inline mr-auto w-100 navbar-search">
                                 <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                    <input type="text" class="form-control bg-light border-0 small"
+                                           placeholder="Search for..." aria-label="Search"
+                                           aria-describedby="basic-addon2">
                                     <div class="input-group-append">
                                         <button class="btn btn-primary" type="button">
                                             <i class="fas fa-search fa-sm"></i>
@@ -191,13 +201,15 @@
 
                     <!-- Nav Item - Alerts -->
                     <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-bell fa-fw"></i>
                             <!-- Counter - Alerts -->
                             <span class="badge badge-danger badge-counter">3+</span>
                         </a>
                         <!-- Dropdown - Alerts -->
-                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="alertsDropdown">
                             <h6 class="dropdown-header">
                                 Alerts Center
                             </h6>
@@ -240,53 +252,67 @@
 
                     <!-- Nav Item - Messages -->
                     <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-envelope fa-fw"></i>
                             <!-- Counter - Messages -->
                             <span class="badge badge-danger badge-counter">7</span>
                         </a>
                         <!-- Dropdown - Messages -->
-                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="messagesDropdown">
                             <h6 class="dropdown-header">
                                 Message Center
                             </h6>
                             <a class="dropdown-item d-flex align-items-center" href="#">
                                 <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60"
+                                         alt="">
                                     <div class="status-indicator bg-success"></div>
                                 </div>
                                 <div class="font-weight-bold">
-                                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
+                                    <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                        problem I've been having.
+                                    </div>
                                     <div class="small text-gray-500">Emily Fowler · 58m</div>
                                 </div>
                             </a>
                             <a class="dropdown-item d-flex align-items-center" href="#">
                                 <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60"
+                                         alt="">
                                     <div class="status-indicator"></div>
                                 </div>
                                 <div>
-                                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
+                                    <div class="text-truncate">I have the photos that you ordered last month, how would
+                                        you like them sent to you?
+                                    </div>
                                     <div class="small text-gray-500">Jae Chun · 1d</div>
                                 </div>
                             </a>
                             <a class="dropdown-item d-flex align-items-center" href="#">
                                 <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60"
+                                         alt="">
                                     <div class="status-indicator bg-warning"></div>
                                 </div>
                                 <div>
-                                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
+                                    <div class="text-truncate">Last month's report looks great, I am very happy with the
+                                        progress so far, keep up the good work!
+                                    </div>
                                     <div class="small text-gray-500">Morgan Alvarez · 2d</div>
                                 </div>
                             </a>
                             <a class="dropdown-item d-flex align-items-center" href="#">
                                 <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                         alt="">
                                     <div class="status-indicator bg-success"></div>
                                 </div>
                                 <div>
-                                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
+                                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told
+                                        me that people say this to all dogs, even if they aren't good...
+                                    </div>
                                     <div class="small text-gray-500">Chicken the Dog · 2w</div>
                                 </div>
                             </a>
@@ -298,12 +324,14 @@
 
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
                             <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                         </a>
                         <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="#">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Profile
@@ -338,7 +366,8 @@
 
                 <div class="card shadow mb-4">
                     <!-- Card Header - Accordion -->
-                    <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                    <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button"
+                       aria-expanded="true" aria-controls="collapseCardExample">
                         <h6 class="m-0 font-weight-bold text-primary">
                             Slider Elements
                         </h6>
@@ -348,27 +377,29 @@
                         <div class="card-body">
 
 
-                         <form action="../controllers/HomeController.admin.php" method="post" enctype="multipart/form-data">
-                             <div class="row">
-                                 <div class="col-md-3">
-                                     <input type="text" class="form-control" name="d_title" required placeholder="Title"/>
-                                 </div>
-                                 <div class="col-md-3">
-                                     <input type="text" class="form-control" name="d_subtitle"  required placeholder="Subtitle"/>
-                                 </div>
-                                 <div class="col-md-3">
-                                     <input type="file" class="form-control-file" required name="d_image" placeholder="Title"/>
-                                 </div>
-                                 <div class="col-md-3">
-                                     <input type="submit" value="Add Slider"  required name="submit" class="btn btn-dark btn-block"/>
-                                 </div>
-                             </div>
-                         </form>
+                            <form action="../controllers/HomeController.admin.php" method="post"
+                                  enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" name="d_title" required
+                                               placeholder="Title"/>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" name="d_subtitle" required
+                                               placeholder="Subtitle"/>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="file" class="form-control-file" required name="d_image"
+                                               placeholder="Title"/>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="submit" value="Add Slider" required name="submit"
+                                               class="btn btn-dark btn-block"/>
+                                    </div>
+                                </div>
+                            </form>
 
                             <hr/>
-
-
-
 
 
                             <div class="card-body">
@@ -393,56 +424,31 @@
                                         </tr>
                                         </tfoot>
                                         <tbody>
-                                            <?php
+                                        <?php
 
-                                                require ("../models/Slider.php");
-                                                $sliders = Slider::getSliders();
+                                        require("../models/Slider.php");
+                                        $sliders = Slider::getSliders();
 
-                                                foreach($sliders as $slider)
-                                                {
-                                                    ?>
-<tr>
-                                                    <td><?php echo( $slider->getTitle());?></td>
-                                                    <td><?php echo( $slider->getSubtitle());?></td>
-                                                    <td><img src="../static/img/<?php echo( $slider->getImage());?>" width="100px"/> </td>
-                                                    <td><a class="btn btn-sm btn-circle btn-danger text-white" href="../controllers/HomeController.admin.php?deleteSlider=true&d_id=<?php echo($slider->getId());?>"><i class="fas fa-trash" </a> </td>
-                                                    <td><a class="btn btn-sm btn-circle btn-warning text-white" ><i class="fas fa-edit"></i> </a> </td>
-</tr>
-                                                    <?php
-                                                }
+                                        foreach ($sliders as $slider) {
                                             ?>
+                                            <tr>
+                                                <td><?php echo($slider->getTitle()); ?></td>
+                                                <td><?php echo($slider->getSubtitle()); ?></td>
+                                                <td><img src="../static/img/<?php echo($slider->getImage()); ?>"
+                                                         width="100px"/></td>
+                                                <td><a class="btn btn-sm btn-circle btn-danger text-white"
+                                                       href="../controllers/HomeController.admin.php?deleteSlider=true&d_id=<?php echo($slider->getId()); ?>"><i
+                                                                class="fas fa-trash" </a></td>
+                                                <td><a class="btn btn-sm btn-circle btn-warning text-white"><i
+                                                                class="fas fa-edit"></i> </a></td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                         </div>
@@ -450,15 +456,10 @@
                 </div>
 
 
-
-
-
-
-
-
                 <div class="card shadow mb-4">
                     <!-- Card Header - Accordion -->
-                    <a href="#welcomeText" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                    <a href="#welcomeText" class="d-block card-header py-3" data-toggle="collapse" role="button"
+                       aria-expanded="true" aria-controls="collapseCardExample">
                         <h6 class="m-0 font-weight-bold text-primary">
                             Welcome Text
                         </h6>
@@ -468,36 +469,83 @@
                         <div class="card-body">
 
 
-
-
-
-
-
-                            <div class="card-body">
-
-                                <form action="../controllers/HomeController.admin.php"  METHOD="POST">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <textarea class="form-control" name="d_welcome_text">Some Text Will Appear here.</textarea>
-                                        </div>
-                                        <div class="col-md-4"></div>
-                                        <div class="col-md-4">
-                                            <input type="submit" class="btn btn-dark mt-5" value="Change Welcome Text"/>
-                                        </div>
-                                        <div class="col-md-4"></div>
+                            <?php
+                            if (isset($_GET['welcomeText'])) {
+                                echo("<div class='alert alert-success'>Welcome Text changed successfully.</div>");
+                            }
+                            ?>
+                            <form action="../controllers/HomeController.admin.php" METHOD="POST">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <?php
+                                        require("../models/Config.php");
+                                        $config = Config::object();
+                                        ?>
+                                        <textarea class="form-control"
+                                                  name="d_welcome_text"><?php echo $config->getWelcomeText(); ?></textarea>
                                     </div>
-                                </form>
-
-                            </div>
-
-
-
-
-
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">
+                                        <input type="submit" class="btn btn-dark mt-5" value="Change Welcome Text"/>
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                </div>
+                            </form>
 
                         </div>
+
+
                     </div>
                 </div>
+
+
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Accordion -->
+                    <a href="#footerText" class="d-block card-header py-3" data-toggle="collapse" role="button"
+                       aria-expanded="true" aria-controls="collapseCardExample">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            Foooter Text
+                        </h6>
+                    </a>
+                    <!-- Card Content - Collapse -->
+                    <div class="collapse show" id="footerText">
+                        <div class="card-body">
+
+
+                            <?php
+                            if (isset($_GET['footerText'])) {
+                                echo("<div class='alert alert-success'>Footer Text changed successfully.</div>");
+                            }
+                            ?>
+                            <form action="../controllers/HomeController.admin.php" METHOD="POST">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <?php
+
+                                        $config = Config::object();
+                                        ?>
+                                        <textarea class="form-control"
+                                                  name="d_footer_text"><?php echo $config->getFooterText(); ?></textarea>
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">
+                                        <input type="submit" class="btn btn-dark mt-5" value="Change Welcome Text"/>
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                </div>
+                            </form>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
             <!-- /.container-fluid -->
 
         </div>
@@ -525,7 +573,8 @@
 </a>
 
 <!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">

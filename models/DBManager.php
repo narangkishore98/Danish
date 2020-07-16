@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 class DBManager
 {
     private static $servername = "localhost" ;

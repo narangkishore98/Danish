@@ -103,6 +103,28 @@ if (isset($_GET['deleteSlider']))
 }
 
 
+if(isset($_POST['d_welcome_text']))
+{
+    require ('../models/Config.php');
+    $welcomeText = $_POST['d_welcome_text'];
+    $config = Config::object();
+    $config->setWelcomeText($welcomeText);
+    $config->saveWelcomeText();
+    header("Location: ../admin/home.admin.php?welcomeText=true");
+
+}
+
+
+if(isset($_POST['d_footer_text']))
+{
+    require ('../models/Config.php');
+    $footerText = $_POST['d_footer_text'];
+    $config = Config::object();
+    $config->setFooterText($footerText);
+    $config->saveFooterText();
+    header("Location: ../admin/home.admin.php?footerText=true");
+
+}
 
 
 ?>
