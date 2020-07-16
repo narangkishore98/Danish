@@ -5,7 +5,7 @@ require ('DBManager.php');
 class Config
 {
 
-    pri var $welcomeText = "";
+    private var $welcomeText = "";
 
     /**
      * @return string
