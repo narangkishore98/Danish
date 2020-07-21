@@ -37,7 +37,7 @@ class Config
 
     public function setEmails(string $emails)
     {
-        $this->emails = explode($emails, ",");
+        $this->emails = explode(",", $emails);
     }
 
     public function getPhoneNumbers()
@@ -47,7 +47,10 @@ class Config
 
     public function setPhoneNumbers(string $phoneNumbers)
     {
-        $this->phoneNumbers = explode($phoneNumbers, ",");
+
+
+        $this->phoneNumbers = explode(",",$phoneNumbers );
+        //var_dump($this->phoneNumbers);
     }
 
     public function getAddress()
@@ -230,10 +233,12 @@ class Config
     {
         try {
             $conn = DBManager::getConnection();
-            $conn->exec("update config_cms set cms_value = '$this->facebook' where cms_key = 'd_facebook'");
-            $conn->exec("update config_cms set cms_value = '$this->instagram' where cms_key = 'd_instagram'");
-            $conn->exec("update config_cms set cms_value = '$this->linkedin' where cms_key = 'd_instagram'");
-            $conn->exec("update config_cms set cms_value = '$this->github' where cms_key = 'd_github'");
+            $conn->exec("update config_cms set cms_value = '$this->facebook' where cms_key = 'd_facebook_link'");
+            $conn->exec("update config_cms set cms_value = '$this->instagram' where cms_key = 'd_instagram_link'");
+            $conn->exec("update config_cms set cms_value = '$this->linkedin' where cms_key = 'd_linkedin_link'");
+            $conn->exec("update config_cms set cms_value = '$this->github' where cms_key = 'd_github_link'");
+
+            echo("Upload Successful");
         }
         catch (PDOException $e)
         {
@@ -265,5 +270,6 @@ class Config
 
 }
 
+Config::object();
 
 ?>

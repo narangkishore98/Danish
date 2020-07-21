@@ -267,11 +267,11 @@
                             <?php
 
 
-                            if (isset($_GET['changed'])) {
-                                echo("<div class='alert alert-success'>About Data changed successfully.</div>");
+                            if (isset($_GET['contactChanged'])) {
+                                echo("<div class='alert alert-success'>Contact Information  changed successfully.</div>");
                             }
                             ?>
-                            <form action="../controllers/ContactController.admin.php" METHOD="POST" enctype="multipart/form-data">
+                            <form action="../controllers/ContactController.admin.php" METHOD="POST" >
                                 <div class="row">
                                     <div class="col-md-12">
                                         <?php
@@ -280,16 +280,16 @@
                                         ?>
 
 
-                                        <input type="text" placeholder="Emails Comma Seperated" name="d_emails_cs" class="form-control mt-2"/>
+                                        <input type="text" placeholder="Emails Comma Seperated" name="d_emails_cs" class="form-control mt-2"  value="<?php echo(implode(",", $config->getEmails()));?>"/>
                                         <small>Write comma seperated multiple emails</small>
 
 
 
-                                        <input type="text" placeholder="Phone Numbers Comma Seperated" name="d_phonenumbers_cs" class="form-control mt-2"/>
+                                        <input type="text" placeholder="Phone Numbers Comma Seperated" name="d_phonenumbers_cs" class="form-control mt-2" value="<?php echo(implode(",", $config->getPhoneNumbers()));?>"/>
                                         <small>Write comma seperated multiple phone numbers</small>
 
 
-                                        <input type="text" placeholder="Complete Address. " name="d_emails_cs" class="form-control mt-2"/>
+                                        <input type="text" placeholder="Complete Address. " name="d_address" class="form-control mt-2" value="<?php echo($config->getAddress());?>"/>
                                         <small>Please write the correct address to be shown on the map at front end. </small>
 
 
@@ -324,7 +324,7 @@
                     <a href="#welcomeText" class="d-block card-header py-3" data-toggle="collapse" role="button"
                        aria-expanded="true" aria-controls="collapseCardExample">
                         <h6 class="m-0 font-weight-bold text-primary">
-                            Contact Information
+                            Social Media
                         </h6>
 
                     </a>
@@ -337,24 +337,35 @@
                             <?php
 
 
-                            if (isset($_GET['changed'])) {
-                                echo("<div class='alert alert-success'>About Data changed successfully.</div>");
+                            if (isset($_GET['socialChanged'])) {
+                                echo("<div class='alert alert-success'>Social Sites information changed successfully.</div>");
                             }
                             ?>
-                            <form action="../controllers/AboutController.admin.php" METHOD="POST" enctype="multipart/form-data">
+                            <form action="../controllers/ContactController.admin.php" METHOD="POST" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <?php
 
                                         ?>
 
+                                        <small>Facebook Link  <i class="text-warning"> eg. https://www.facebook.com/example</i></small>
+                                        <input type="url" placeholder="Facebook Link" value="<?php echo($config->getFacebook());?>" name="d_facebook" class="form-control mb-2"/>
+
+                                        <small>Instagram Link  <i class="text-warning"> eg. https://www.instagram.com/example</i></small>
+                                        <input type="url" placeholder="Instagram Link" value="<?php echo($config->getInstagram());?>" name="d_instagram" class="form-control mb-2"/>
+
+                                        <small>LinkedIn Link  <i class="text-warning"> eg. https://www.linkedin.com/in/example</i></small>
+                                        <input type="url" placeholder="LinkedIn Link" value="<?php echo($config->getLinkedin());?>" name="d_linkedin" class="form-control mb-2"/>
+
+                                        <small>Github Link  <i class="text-warning"> eg. https://www.github.com/example</i></small>
+                                        <input type="url" placeholder="Github Link" value="<?php echo($config->getGithub());?>" name="d_github" class="form-control mb-2"/>
 
 
                                     </div>
 
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4">
-                                        <input type="submit" name="submit" class="btn btn-dark mt-5 btn-block" value="Change Contact Information "/>
+                                        <input type="submit" name="submit" class="btn btn-dark mt-5 btn-block" value="Change Social Media Information "/>
                                     </div>
                                     <div class="col-md-4"></div>
                                 </div>
