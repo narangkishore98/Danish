@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Pages - Home - Admin - Danish CMS</title>
+    <title>Pages - Contact - Admin - Danish CMS</title>
 
     <!-- Custom fonts for this template-->
     <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -26,7 +26,7 @@
 <!-- Page Wrapper -->
 <div id="wrapper">
 
-   <?php include ('sidebar.php');?>
+    <?php include('sidebar.php');?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -244,99 +244,9 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Pages - Home</h1>
+                <h1 class="h3 mb-4 text-gray-800">Pages - Contact </h1>
 
 
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Accordion -->
-                    <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button"
-                       aria-expanded="true" aria-controls="collapseCardExample">
-                        <h6 class="m-0 font-weight-bold text-primary">
-                            Slider Elements
-                        </h6>
-                    </a>
-                    <!-- Card Content - Collapse -->
-                    <div class="collapse show" id="collapseCardExample">
-                        <div class="card-body">
-
-
-                            <form action="../controllers/HomeController.admin.php" method="post"
-                                  enctype="multipart/form-data">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control" name="d_title" required
-                                               placeholder="Title"/>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control" name="d_subtitle" required
-                                               placeholder="Subtitle"/>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="file" class="form-control-file" required name="d_image"
-                                               placeholder="Title"/>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="submit" value="Add Slider" required name="submit"
-                                               class="btn btn-dark btn-block"/>
-                                    </div>
-                                </div>
-                            </form>
-
-                            <hr/>
-
-
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                        <tr>
-                                            <th>Title</th>
-                                            <th>Subtitle</th>
-                                            <th>Image</th>
-                                            <th>Delete</th>
-                                            <th>Update</th>
-                                        </tr>
-                                        </thead>
-                                        <tfoot>
-                                        <tr>
-                                            <th>Title</th>
-                                            <th>Subtitle</th>
-                                            <th>Image</th>
-                                            <th>Delete</th>
-                                            <th>Update</th>
-                                        </tr>
-                                        </tfoot>
-                                        <tbody>
-                                        <?php
-
-                                        require("../models/Slider.php");
-                                        $sliders = Slider::getSliders();
-
-                                        foreach ($sliders as $slider) {
-                                            ?>
-                                            <tr>
-                                                <td><?php echo($slider->getTitle()); ?></td>
-                                                <td><?php echo($slider->getSubtitle()); ?></td>
-                                                <td><img src="../static/img/<?php echo($slider->getImage()); ?>"
-                                                         width="100px"/></td>
-                                                <td><a class="btn btn-sm btn-circle btn-danger text-white"
-                                                       href="../controllers/HomeController.admin.php?deleteSlider=true&d_id=<?php echo($slider->getId()); ?>"><i
-                                                                class="fas fa-trash" </a></td>
-                                                <td><a class="btn btn-sm btn-circle btn-warning text-white"><i
-                                                                class="fas fa-edit"></i> </a></td>
-                                            </tr>
-                                            <?php
-                                        }
-                                        ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
 
 
                 <div class="card shadow mb-4">
@@ -344,32 +254,50 @@
                     <a href="#welcomeText" class="d-block card-header py-3" data-toggle="collapse" role="button"
                        aria-expanded="true" aria-controls="collapseCardExample">
                         <h6 class="m-0 font-weight-bold text-primary">
-                            Welcome Text
+                           Contact Information
                         </h6>
+
                     </a>
                     <!-- Card Content - Collapse -->
                     <div class="collapse show" id="welcomeText">
                         <div class="card-body">
 
 
+
                             <?php
-                            if (isset($_GET['welcomeText'])) {
-                                echo("<div class='alert alert-success'>Welcome Text changed successfully.</div>");
+
+
+                            if (isset($_GET['changed'])) {
+                                echo("<div class='alert alert-success'>About Data changed successfully.</div>");
                             }
                             ?>
-                            <form action="../controllers/HomeController.admin.php" METHOD="POST">
+                            <form action="../controllers/ContactController.admin.php" METHOD="POST" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <?php
                                         require("../models/Config.php");
                                         $config = Config::object();
                                         ?>
-                                        <textarea class="form-control"
-                                                  name="d_welcome_text"><?php echo $config->getWelcomeText(); ?></textarea>
+
+
+                                        <input type="text" placeholder="Emails Comma Seperated" name="d_emails_cs" class="form-control mt-2"/>
+                                        <small>Write comma seperated multiple emails</small>
+
+
+
+                                        <input type="text" placeholder="Phone Numbers Comma Seperated" name="d_phonenumbers_cs" class="form-control mt-2"/>
+                                        <small>Write comma seperated multiple phone numbers</small>
+
+
+                                        <input type="text" placeholder="Complete Address. " name="d_emails_cs" class="form-control mt-2"/>
+                                        <small>Please write the correct address to be shown on the map at front end. </small>
+
+
                                     </div>
+
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4">
-                                        <input type="submit" class="btn btn-dark mt-5" value="Change Welcome Text"/>
+                                        <input type="submit" name="submit" class="btn btn-dark mt-5 btn-block" value="Change Contact Information "/>
                                     </div>
                                     <div class="col-md-4"></div>
                                 </div>
@@ -380,39 +308,53 @@
 
                     </div>
                 </div>
+
+
+
+
+
+
+
+
+
 
 
                 <div class="card shadow mb-4">
                     <!-- Card Header - Accordion -->
-                    <a href="#footerText" class="d-block card-header py-3" data-toggle="collapse" role="button"
+                    <a href="#welcomeText" class="d-block card-header py-3" data-toggle="collapse" role="button"
                        aria-expanded="true" aria-controls="collapseCardExample">
                         <h6 class="m-0 font-weight-bold text-primary">
-                            Foooter Text
+                            Contact Information
                         </h6>
+
                     </a>
                     <!-- Card Content - Collapse -->
-                    <div class="collapse show" id="footerText">
+                    <div class="collapse show" id="welcomeText">
                         <div class="card-body">
 
 
+
                             <?php
-                            if (isset($_GET['footerText'])) {
-                                echo("<div class='alert alert-success'>Footer Text changed successfully.</div>");
+
+
+                            if (isset($_GET['changed'])) {
+                                echo("<div class='alert alert-success'>About Data changed successfully.</div>");
                             }
                             ?>
-                            <form action="../controllers/HomeController.admin.php" METHOD="POST">
+                            <form action="../controllers/AboutController.admin.php" METHOD="POST" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <?php
 
-                                        $config = Config::object();
                                         ?>
-                                        <textarea class="form-control"
-                                                  name="d_footer_text"><?php echo $config->getFooterText(); ?></textarea>
+
+
+
                                     </div>
+
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4">
-                                        <input type="submit" class="btn btn-dark mt-5" value="Change Welcome Text"/>
+                                        <input type="submit" name="submit" class="btn btn-dark mt-5 btn-block" value="Change Contact Information "/>
                                     </div>
                                     <div class="col-md-4"></div>
                                 </div>
@@ -423,6 +365,10 @@
 
                     </div>
                 </div>
+
+
+
+
 
 
 

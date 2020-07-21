@@ -1,6 +1,6 @@
 <?php
 
-require ('DBManager.php');
+require_once ('DBManager.php');
 class User
 {
     private $name = "";
@@ -202,6 +202,36 @@ class User
     }
 
 
+
+
+    public static function authenticate($username, $password)
+    {
+        try{
+            $conn = DBManager::getConnection();
+            $q = $conn->query("SELECT * FROM users WHERE d_username = $username AND d_password = $password");
+
+            $q->setFetchMode(PDO::FETCH_ASSOC);;
+
+            $row = $q->fetch();
+
+            if($row)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+
+        }
+        catch (PDOException $e)
+        {
+            echo("What happend here i don't know".$e->getMessage());
+        }
+
+        return 0;
+
+    }
 
 
 

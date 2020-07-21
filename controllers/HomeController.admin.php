@@ -126,5 +126,3 @@ if(isset($_POST['d_footer_text']))
 
 }
 
-
-?>
