@@ -86,9 +86,15 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="users.php">
+        <a class="nav-link" href="users.admin.php">
             <i class="fas fa-fw fa-users"></i>
             <span>Users</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="team.admin.php">
+            <i class="fas fa-fw fa-users-cog"></i>
+            <span>Team</span></a>
     </li>
 
     <!-- Nav Item - Tables -->

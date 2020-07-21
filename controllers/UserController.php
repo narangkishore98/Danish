@@ -16,7 +16,7 @@ if (isset($_GET['deleteUser']))
     $user = User::getUserById($id);
     var_dump($user);
     echo( $user->delete());
-    header('Location:../admin/users.php');
+    header('Location:../admin/users.admin.php');
 
 
 
@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
         $level = $_POST['d_level'];
         $user = new User($name, $email, $username, $password, $level);
        $user->save();
-        header("Location:../admin/users.php?userCreated=true");
+        header("Location:../admin/users.admin.php?userCreated=true");
     }
 
     if(isset($_POST['d_id_u']))
@@ -58,6 +58,6 @@ if($_SERVER['REQUEST_METHOD']=="POST")
         echo($level);
         $user->save();
 
-        header('Location:../admin/users.php?userUpdated=true');
+        header('Location:../admin/users.admin.php?userUpdated=true');
     }
 }
