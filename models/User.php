@@ -208,7 +208,7 @@ class User
     {
         try{
             $conn = DBManager::getConnection();
-            $q = $conn->query("SELECT * FROM users WHERE d_username = $username AND d_password = $password");
+            $q = $conn->query("SELECT * FROM users WHERE d_email = '$username' AND d_password = '$password'");
 
             $q->setFetchMode(PDO::FETCH_ASSOC);;
 
@@ -216,11 +216,11 @@ class User
 
             if($row)
             {
-                return 1;
+                return $row['d_id'];
             }
             else
             {
-                return 0;
+                return -1;
             }
 
         }

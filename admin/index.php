@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php  if(! isset($_SESSION['loggedInId'])){ header('Location: index.php');}?>
+<?php session_start();  if( isset($_SESSION['loggedInId'])){ header('Location: dashboard.php');}?>
 
 <head>
 
@@ -42,17 +42,17 @@
                                     <img src="../static/images/logo.png"/>
                                     <h1 class="h4 text-gray-900 mb-4">Login</h1>
                                 </div>
-                                <form class="user">
+                                <form class="user" method="post" action="../controllers/Authenticator.php">
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                                        <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                                        <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
                                     </div>
 
-                                    <a href="index.php" class="btn btn-danger btn-user btn-block">
+                                    <input type="submit" name="login" class="btn btn-danger btn-user btn-block">
                                         Login
-                                    </a>
+                                    </input>
 
 
                                 </form>
