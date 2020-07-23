@@ -270,6 +270,5 @@ class Config
 
 }
 
-Config::object();
 
 ?>

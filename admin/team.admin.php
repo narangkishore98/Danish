@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<?php  if(! isset($_SESSION['loggedInId'])){ header('Location: index.php');}?>
 
 <head>
 
@@ -227,24 +228,24 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Users</h1>
+                <h1 class="h3 mb-4 text-gray-800">Team</h1>
 
 
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6  style="display: inline;" class="m-0 font-weight-bold text-primary">User Type: &nbsp; <a href="#" class="btn btn-light btn-sm">Admin</a> <a href="#" class="btn btn-secondary btn-sm">Moderator</a> </h6>     <button data-toggle="modal" data-target="#addUser" class="btn btn-circle btn-dark btn-sm" style="margin-left: 70%;"><i  class="fas fa-user-plus"></i></button>
+                        <h6  style="display: inline;" class="m-0 font-weight-bold text-primary">Team Members</h6>     <button data-toggle="modal" data-target="#addUser" class="btn btn-circle btn-dark btn-sm" style="margin-left: auto; display: inline-flex; float:right;"><i  class="fas fa-user-plus"></i></button>
                     </div>
                     <div class="card-body">
                         <?php if(isset($_GET['userCreated'])){ echo("<div class='alert alert-success'>New User Created</div>"); } ?>
-                        <?php if(isset($_GET['userUpdated'])){ echo("<div class='alert alert-warning'> User Updated</div>"); } ?>
+                        <?php if(isset($_GET['userUpdate'])){ echo("<div class='alert alert-warning'> Team Member Updated</div>"); } ?>
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Username</th>
-                                    <th>Password</th>
+                                    <th>Title</th>
+                                    <th>Short Bio</th>
+                                    <th>Image</th>
                                     <th>Delete</th>
                                     <th>Update</th>
                                 </tr>
@@ -252,28 +253,27 @@
                                 <tfoot>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Username</th>
-                                    <th>Password</th>
+                                    <th>Title</th>
+                                    <th>Short Bio</th>
+                                    <th>Image</th>
                                     <th>Delete</th>
                                     <th>Update</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
                                 <?php
-                                require ('../models/User.php');
-                                $users = User::getUsers();
-                                foreach ($users as $user)
+                                require ('../models/Team.php');
+                                $members =  Team::getMembers();
+                                foreach ($members as $member)
                                 {
                                     ?>
-                                    <tr <?php if($user->getLevel() == "M"){ echo("class='bg-secondary text-white'");}?>  >
-                                        <td id="nameCellFor<?php echo($user->getId());?>"><?php echo($user->getName()) ?></td>
-                                        <td id="emailCellFor<?php echo($user->getId());?>"><?php echo($user->getEmail()) ?></td>
-                                        <td id="usernameCellFor<?php echo($user->getId());?>"><?php echo($user->getUsername()) ?></td>
-                                        <td id="passwordCellFor<?php echo($user->getId());?>"><?php echo($user->getPassword()) ?></td>
-                                        <td><a href="../controllers/UserController.php?deleteUser=true&d_id=<?php echo($user->getId()) ?>" class="btn btn-sm btn-circle btn-danger"><i class="fas fa-trash"></i> </a> </td>
-                                        <td><a data-toggle="modal" id="<?php echo($user->getId());?>"  class="btn btn-sm btn-circle btn-warning user-update-click text-white"><i class="fas fa-user-edit"></i> </a> </td>
-                                        <span hidden="hidden" id="levelCellFor<?php echo($user->getId());?>"><?php echo($user->getLevel()); ?></span>
+                                    <tr >
+                                        <td id="nameCellFor<?php echo($member->getId());?>"><?php echo($member->getName()) ?></td>
+                                        <td id="titleCellFor<?php echo($member->getId());?>"><?php echo($member->getTitle()) ?></td>
+                                        <td id="bioCellFor<?php echo($member->getId());?>"><?php echo($member->getShortBio()) ?></td>
+                                        <td id="imageCellFor<?php echo($member->getId());?>"><img width="100px" src="../static/img/<?php echo($member->getImage());?>"></td>
+                                        <td><a href="../controllers/TeamController.admin.php?deleteUser=true&d_id=<?php echo($member->getId()) ?>" class="btn btn-sm btn-circle btn-danger"><i class="fas fa-trash"></i> </a> </td>
+                                        <td><a data-toggle="modal" id="<?php echo($member->getId());?>"  class="btn btn-sm btn-circle btn-warning user-update-click text-white"><i class="fas fa-user-edit"></i> </a> </td>
 
                                     </tr>
                                     <?php
@@ -319,7 +319,7 @@
 <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form method="post" action="../controllers/UserController.php">
+            <form method="post" action="../controllers/TeamController.admin.php" enctype="multipart/form-data">
 
                 <div class="modal-header bg-dark text-white">
                     <h5 class="modal-title " id="exampleModalLabel">Add Team Member</h5>
@@ -345,6 +345,46 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+<!-- Update Modal -->
+
+
+<div class="modal fade" id="updateUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form method="post" action="../controllers/TeamController.admin.php" enctype="multipart/form-data">
+
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title " id="exampleModalLabel">Update User</h5>
+                    <button type="button text-white" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <input type="hidden" id="updateId" name="d_id_u" value=""/>
+                    <input type="text" class="form-control mb-2" id="updateName" required placeholder="Full Name" name="d_name_u"/>
+                    <input type="text" class="form-control mb-2" id="updateTitle" required placeholder="Email" name="d_title_u"/>
+                    <input type="text" class="form-control mb-2" id="updateShortBio" required placeholder="Username" name="d_short_bio_u"/>
+                    <small>Choose a new image for the team member. </small>
+                    <input type="file" class="form-control-file mb-2" id="updateImage" required placeholder="Image" name="d_image"/>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-dark" name="updateUser">Update User</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
 
 
 
@@ -380,6 +420,37 @@
 <script src="../static/js/sb-admin-2.min.js"></script>
 
 <script src="../static/js/demo/datatables-demo.js"></script>
+
+<script>
+
+    //Script for opening Update Modal
+
+    $(document).ready(function(){
+        $(".user-update-click").click(function() {
+
+            let id = $(this).attr("id");
+            let name = $("#nameCellFor"+id).text();
+            let title = $("#titleCellFor"+id).text();
+            let bio = $("#bioCellFor"+id).text();
+
+
+
+
+            $("#updateName").val(name);
+            $("#updateTitle").val(title);
+            $("#updateShortBio").val(bio);
+
+            $("#updateId").val(id);
+
+            $("#updateUser").modal('show');
+
+            console.log("modal printerd");
+
+
+        });
+    });
+
+</script>
 </body>
 
 </html>

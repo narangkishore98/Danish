@@ -1,5 +1,6 @@
 <?php
 
+require_once ('DBManager.php');
 
 class Team
 {
@@ -78,7 +79,7 @@ class Team
 
 
 
-            $member = Team($row['d_name'], $row['d_title'], $row['d_short_bio'], $row['d_image']);
+            $member = new Team($row['d_name'], $row['d_title'], $row['d_short_bio'], $row['d_image']);
             $member->id = $row['d_id'];
 
             //DBManager::close();
@@ -112,7 +113,7 @@ class Team
 
             foreach ($rows as $row)
             {
-                $member = Team($row['d_name'], $row['d_title'], $row['d_short_bio'], $row['d_image']);
+                $member = new Team($row['d_name'], $row['d_title'], $row['d_short_bio'], $row['d_image']);
                 $member->id = $row['d_id'];
 
                 array_push($array, $member);

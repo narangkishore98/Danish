@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<?php  if(! isset($_SESSION['loggedInId'])){ header('Location: index.php');}?>
 
 <head>
 
