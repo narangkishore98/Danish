@@ -15,7 +15,7 @@ class Portfolio
      * @param string $title
      * @param string $text
      */
-    public function __construct(string $title, string $text)
+    private function __construct(string $title, string $text)
     {
         $this->title = $title;
         $this->text = $text;
