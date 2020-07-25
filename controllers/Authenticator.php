@@ -22,15 +22,25 @@
         if($id != -1)
         {
             $_SESSION['loggedInId'] = $id;
-            //header('Location: ../admin/dashboard.php ');
+            header('Location: ../admin/dashboard.php ');
             echo("Does not exist");
 
         }
         else
         {
-            //header('Location: ../admin/index.php?invalid=true ');
+            header('Location: ../admin/index.php?invalid=true ');
 
         }
+    }
+
+
+    echo("CHAL");
+
+    if(isset($_GET['logout']))
+    {
+        unset($_SESSION['loggedInId']);
+        session_destroy();
+        header('Location: ../admin/');
     }
 
 ?>

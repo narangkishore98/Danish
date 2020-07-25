@@ -99,9 +99,16 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="portfolio.admin.php">
             <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
+            <span>Portfolio</span></a>
+    </li>
+
+
+    <li class="nav-item">
+        <a class="nav-link" href="portfolio.admin.php">
+            <i class="fas fa-fw fa-cogs"></i>
+            <span>Services</span></a>
     </li>
 
     <!-- Divider -->

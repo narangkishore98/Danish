@@ -104,7 +104,7 @@ if(isset($_GET['deleteUser']))
 
     $member->delete();
 
-    header('Location:../admin/team.admin.php?userAdded=true');
+    header('Location:../admin/team.admin.php?userDeleted=true');
 }
 
 echo("Running");
