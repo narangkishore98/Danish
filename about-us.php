@@ -36,7 +36,7 @@ You can use this class:
 <!-- HEADER -->
 <header class="grid">
     <!-- Top Navigation -->
-    <?php include('topnav.php') ?>
+    <?php include('template/topnav.php') ?>
 </header>
 
 <!-- MAIN -->
@@ -67,8 +67,10 @@ You can use this class:
         <!-- Image-->
         <img class="l-6 hide-s hide-m" src="static/img/<?php echo($config->getAboutImage());?>">
     </section>
+<!--
 
-    <!-- SECTION 2 -->
+
+
     <section class="grid margin margin-bottom padding-2x background-primary">
         <div class="s-12 m-6 l-3">
             <span class="timer text-size-50 text-white text-strong">1500</span>
@@ -101,10 +103,37 @@ You can use this class:
         </div>
     </section>
 
+
+
+-->
+
     <!-- SECTION 3 -->
     <section class="grid margin">
         <h2 class="s-12 text-white text-thin text-size-30 text-white text-uppercase margin-top-bottom-20 center text-center">
             Our <b>Dream Team</b></h2>
+
+
+        <?php
+        require_once 'models/Team.php';
+            $team = Team::getMembers();
+
+            foreach($team as $member)
+            {
+
+
+        ?>
+
+                <div class="s-12 m-6 l-2 margin-bottom">
+                    <img src="static/img/<?php echo $member->getImage();?>"/>
+                    <h4 class="background-primary padding text-strong"><?php echo $member->getName();?></h4>
+                    <p class="margin-bottom-10 text-primary text-uppercase"><?php echo $member->getTitle();?></p>
+                </div>
+        <?php
+            }
+        ?>
+
+
+        <!--
         <div class="s-12 m-6 l-2 margin-bottom">
             <img src="static/img/team-01.jpg"/>
             <h4 class="background-primary padding text-strong">Frank Star</h4>
@@ -135,48 +164,22 @@ You can use this class:
             <h4 class="background-primary padding text-strong">John Sandman</h4>
             <p class="margin-bottom-10 text-primary text-uppercase">Account Manager</p>
         </div>
+        -->
     </section>
 
 </main>
 
 
 <!-- FOOTER -->
-<footer class="grid">
-    <!-- Footer - top -->
-    <!-- Image-->
-    <div class="s-12 l-3 m-row-3 margin-bottom background-image" style="background-image:url(img/img-04.jpg)"></div>
 
-    <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
-        <h2 class="text-strong text-uppercase">Who We Are?</h2>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-            dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-            nonummy.</p>
-    </div>
 
-    <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
-        <h2 class="text-strong text-uppercase">Where We Are?</h2>
-        <img class="full-img" src="img/map.svg" alt=""/>
-    </div>
-
-    <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
-        <h2 class="text-strong text-uppercase">Contact Us</h2>
-        <p><b class="text-primary margin-right-10">P</b> 0800 4521 800 50</p>
-        <p><b class="text-primary margin-right-10">M</b> <a class="text-primary-hover"
-                                                            href="mailto:contact@sampledomain.com">contact@sampledomain.com</a>
-        </p>
-        <p><b class="text-primary margin-right-10">M</b> <a class="text-primary-hover"
-                                                            href="mailto:office@sampledomain.com">office@sampledomain.com</a>
-        </p>
-    </div>
 
     <!-- Footer - bottom -->
-    <div class="s-12 text-center margin-bottom">
-        <p class="text-size-12">Copyright 2019, Vision Design - graphic zoo</p>
-        <p class="text-size-12">All images have been purchased from Bigstock. Do not use the images in your website.</p>
-        <p><a class="text-size-12 text-primary-hover" href="http://www.myresponsee.com"
-              title="Responsee - lightweight responsive framework">Design and coding by Responsee Team</a></p>
-    </div>
-</footer>
+    <?php
+
+    include_once 'template/footer.php'
+    ?>
+
 <script type="text/javascript" src="static/js/responsee.js"></script>
 <script type="text/javascript" src="static/owl-carousel/owl.carousel.js"></script>
 <script type="text/javascript" src="static/js/template-scripts.js"></script>
