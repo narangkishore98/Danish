@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php  session_start(); if(! isset($_SESSION['loggedInId'])){ header('Location: index.php');}?>
+<?php   require_once '../models/User.php'; $user = User::getUserById($_SESSION['loggedInId']); $mode = $user->getLevel();?>
 
 <head>
 
@@ -54,7 +55,7 @@
 
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6  style="display: inline;" class="m-0 font-weight-bold text-primary">Team Members</h6>     <button data-toggle="modal" data-target="#addUser" class="btn btn-circle btn-dark btn-sm" style="margin-left: auto; display: inline-flex; float:right;"><i  class="fas fa-user-plus"></i></button>
+                        <h6  style="display: inline;" class="m-0 font-weight-bold text-primary">Team Members</h6>    <?php if($mode != "M") {?>   <button data-toggle="modal" data-target="#addUser" class="btn btn-circle btn-dark btn-sm" style="margin-left: auto; display: inline-flex; float:right;"><i  class="fas fa-user-plus"></i></button> <?php } ?>
                     </div>
                     <div class="card-body">
                         <?php if(isset($_GET['userCreated'])){ echo("<div class='alert alert-success'>New User Created</div>"); } ?>
@@ -67,7 +68,7 @@
                                     <th>Title</th>
                                     <th>Short Bio</th>
                                     <th>Image</th>
-                                    <th>Delete</th>
+                                    <?php if($mode != "M") {?> <th>Delete</th><?php } ?>
                                     <th>Update</th>
                                 </tr>
                                 </thead>
@@ -77,7 +78,7 @@
                                     <th>Title</th>
                                     <th>Short Bio</th>
                                     <th>Image</th>
-                                    <th>Delete</th>
+                                    <?php if($mode != "M") {?>  <th>Delete</th> <?php } ?>
                                     <th>Update</th>
                                 </tr>
                                 </tfoot>
@@ -93,7 +94,7 @@
                                         <td id="titleCellFor<?php echo($member->getId());?>"><?php echo($member->getTitle()) ?></td>
                                         <td id="bioCellFor<?php echo($member->getId());?>"><?php echo($member->getShortBio()) ?></td>
                                         <td id="imageCellFor<?php echo($member->getId());?>"><img width="100px" src="../static/img/<?php echo($member->getImage());?>"></td>
-                                        <td><a href="../controllers/TeamController.admin.php?deleteUser=true&d_id=<?php echo($member->getId()) ?>" class="btn btn-sm btn-circle btn-danger"><i class="fas fa-trash"></i> </a> </td>
+                                        <?php if($mode != "M") {?> <td><a href="../controllers/TeamController.admin.php?deleteUser=true&d_id=<?php echo($member->getId()) ?>" class="btn btn-sm btn-circle btn-danger"><i class="fas fa-trash"></i> </a> </td><?php } ?>
                                         <td><a data-toggle="modal" id="<?php echo($member->getId());?>"  class="btn btn-sm btn-circle btn-warning user-update-click text-white"><i class="fas fa-user-edit"></i> </a> </td>
 
                                     </tr>

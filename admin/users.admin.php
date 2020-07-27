@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php  session_start(); if(! isset($_SESSION['loggedInId'])){ header('Location: index.php');}?>
+<?php   require_once '../models/User.php'; $user = User::getUserById($_SESSION['loggedInId']); $mode = $user->getLevel();?>
 
 <head>
 
@@ -51,7 +52,7 @@
 
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6  style="display: inline;" class="m-0 font-weight-bold text-primary">User Type: &nbsp; <a href="#" class="btn btn-light btn-sm">Admin</a> <a href="#" class="btn btn-secondary btn-sm">Moderator</a> </h6>     <button data-toggle="modal" data-target="#addUser" class="btn btn-circle btn-dark btn-sm" style="margin-left: 70%;"><i  class="fas fa-user-plus"></i></button>
+                        <h6  style="display: inline;" class="m-0 font-weight-bold text-primary">User Type: &nbsp; <a href="#" class="btn btn-light btn-sm">Admin</a> <a href="#" class="btn btn-secondary btn-sm">Moderator</a> </h6>    <?php if($mode != "M") {?>   <button data-toggle="modal" data-target="#addUser" class="btn btn-circle btn-dark btn-sm" style="margin-left: 70%;"><i  class="fas fa-user-plus"></i></button> <?php } ?>
                      </div>
                     <div class="card-body">
                         <?php if(isset($_GET['userCreated'])){ echo("<div class='alert alert-success'>New User Created</div>"); } ?>
@@ -64,7 +65,7 @@
                                     <th>Email</th>
                                     <th>Username</th>
                                     <th>Password</th>
-                                    <th>Delete</th>
+                                    <?php if($mode != "M") {?><th>Delete</th><?php }?>
                                     <th>Update</th>
                                 </tr>
                                 </thead>
@@ -74,7 +75,8 @@
                                     <th>Email</th>
                                     <th>Username</th>
                                     <th>Password</th>
-                                    <th>Delete</th>
+                                    <?php if($mode != "M") {?><th>Delete</th><?php }?>
+
                                     <th>Update</th>
                                 </tr>
                                 </tfoot>
@@ -90,7 +92,10 @@
                                             <td id="emailCellFor<?php echo($user->getId());?>"><?php echo($user->getEmail()) ?></td>
                                             <td id="usernameCellFor<?php echo($user->getId());?>"><?php echo($user->getUsername()) ?></td>
                                             <td id="passwordCellFor<?php echo($user->getId());?>"><?php echo($user->getPassword()) ?></td>
-                                            <td><a href="../controllers/UserController.php?deleteUser=true&d_id=<?php echo($user->getId()) ?>" class="btn btn-sm btn-circle btn-danger"><i class="fas fa-trash"></i> </a> </td>
+                                            <?php if($mode != "M") {?> <td><a href="../controllers/UserController.php?deleteUser=true&d_id=<?php echo($user->getId()) ?>" class="btn btn-sm btn-circle btn-danger"><i class="fas fa-trash"></i> </a> </td>
+
+                                             <?php }?>
+
                                             <td><a data-toggle="modal" id="<?php echo($user->getId());?>"  class="btn btn-sm btn-circle btn-warning user-update-click text-white"><i class="fas fa-user-edit"></i> </a> </td>
                                             <span hidden="hidden" id="levelCellFor<?php echo($user->getId());?>"><?php echo($user->getLevel()); ?></span>
 
