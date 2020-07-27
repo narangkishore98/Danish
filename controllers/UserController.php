@@ -7,7 +7,7 @@ class UserController
 }
 
 require ('../models/User.php');
-
+session_start();
 if (isset($_GET['deleteUser']))
 {
 
@@ -60,4 +60,37 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 
         header('Location:../admin/users.admin.php?userUpdated=true');
     }
+
+
+    if(isset($_POST['updateUser']))
+    {
+
+
+        $id = $_SESSION['loggedInId'];
+
+        $name = $_POST['d_name_u'];
+        $email = $_POST['d_email_u'];
+        $password = $_POST['d_password_u'];
+        $username = $_POST['d_username_u'];
+        $level = $_POST['d_level_u'];
+
+
+        $user = User::getUserById($id);
+
+        $user->setUsername($username);
+        $user->setPassword($email);
+        $user->setPassword($password);
+        $user->setLevel($level);
+        $user->setName($name);
+
+
+        echo($level);
+        $user->save();
+
+        header('Location:../admin/profile.admin.php?updated=true');
+    }
+
+
+
+
 }

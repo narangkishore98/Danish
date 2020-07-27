@@ -18,7 +18,7 @@ class Slider
         return $this->id;
     }
 
-    private function __construct($title, $subtitle, $image)
+    public function __construct($title, $subtitle, $image)
     {
         $this->title = $title;
         $this->subtitle = $subtitle;

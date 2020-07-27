@@ -57,16 +57,15 @@
                         <h6  style="display: inline;" class="m-0 font-weight-bold text-primary">Services</h6>     <button data-toggle="modal" data-target="#addUser" class="btn btn-circle btn-dark btn-sm" style="margin-left: auto; display: inline-flex; float:right;"><i  class="fas fa-user-plus"></i></button>
                     </div>
                     <div class="card-body">
-                        <?php if(isset($_GET['serviceCreated'])){ echo("<div class='alert alert-success'>New Service Created</div>"); } ?>
+                        <?php if(isset($_GET['serviceAdded'])){ echo("<div class='alert alert-success'>New Service Created</div>"); } ?>
                         <?php if(isset($_GET['serviceUpdated'])){ echo("<div class='alert alert-warning'> Service Updated</div>"); } ?>
                         <?php if(isset($_GET['serviceDeleted'])){ echo("<div class='alert alert-danger'> Service Deleted</div>"); } ?>
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
-                                    <th>Name</th>
                                     <th>Title</th>
-                                    <th>Short Bio</th>
+                                    <th>Text</th>
                                     <th>Image</th>
                                     <th>Delete</th>
                                     <th>Update</th>
@@ -74,9 +73,8 @@
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>Name</th>
                                     <th>Title</th>
-                                    <th>Short Bio</th>
+                                    <th>Text</th>
                                     <th>Image</th>
                                     <th>Delete</th>
                                     <th>Update</th>
@@ -84,18 +82,17 @@
                                 </tfoot>
                                 <tbody>
                                 <?php
-                                require ('../models/Team.php');
-                                $members =  Team::getMembers();
-                                foreach ($members as $member)
+                                require ('../models/Service.php');
+                                $items =  Service::getItems();
+                                foreach ($items as $item)
                                 {
                                     ?>
                                     <tr >
-                                        <td id="nameCellFor<?php echo($member->getId());?>"><?php echo($member->getName()) ?></td>
-                                        <td id="titleCellFor<?php echo($member->getId());?>"><?php echo($member->getTitle()) ?></td>
-                                        <td id="bioCellFor<?php echo($member->getId());?>"><?php echo($member->getShortBio()) ?></td>
-                                        <td id="imageCellFor<?php echo($member->getId());?>"><img width="100px" src="../static/img/<?php echo($member->getImage());?>"></td>
-                                        <td><a href="../controllers/TeamController.admin.php?deleteUser=true&d_id=<?php echo($member->getId()) ?>" class="btn btn-sm btn-circle btn-danger"><i class="fas fa-trash"></i> </a> </td>
-                                        <td><a data-toggle="modal" id="<?php echo($member->getId());?>"  class="btn btn-sm btn-circle btn-warning user-update-click text-white"><i class="fas fa-user-edit"></i> </a> </td>
+                                        <td id="titleCellFor<?php echo($item->getId());?>"><?php echo($item->getTitle()) ?></td>
+                                        <td id="textCellFor<?php echo($item->getId());?>"><?php echo($item->getText()) ?></td>
+                                        <td id="imageCellFor<?php echo($item->getId());?>"><img src="../static/img/<?php echo($item->getImage()) ?>" width="100px"/> </td>
+                                        <td><a href="../controllers/ServiceController.admin.php?deleteService=true&d_id=<?php echo($item->getId()) ?>" class="btn btn-sm btn-circle btn-danger"><i class="fas fa-trash"></i> </a> </td>
+                                        <td><a data-toggle="modal" id="<?php echo($item->getId());?>"  class="btn btn-sm btn-circle btn-warning user-update-click text-white"><i class="fas fa-user-edit"></i> </a> </td>
 
                                     </tr>
                                     <?php
@@ -141,27 +138,26 @@
 <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form method="post" action="../controllers/TeamController.admin.php" enctype="multipart/form-data">
+            <form method="post" action="../controllers/ServiceController.admin.php" enctype="multipart/form-data">
 
                 <div class="modal-header bg-dark text-white">
-                    <h5 class="modal-title " id="exampleModalLabel">Add Team Member</h5>
+                    <h5 class="modal-title " id="exampleModalLabel">Add Service Item</h5>
                     <button type="button text-white" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
 
-                    <input type="text" class="form-control mb-2" placeholder="Full Name" name="d_name"/>
-                    <input type="text" class="form-control mb-2" placeholder="Title" name="d_title"/>
-                    <textarea class="form-control mb-2" placeholder="Write a short bio here. " name="d_short_bio"></textarea>
+                    <input type="text" class="form-control mb-2" placeholder="Title" name="d_title" required/>
+                    <textarea class="form-control mb-2" placeholder="Write a service text here. " name="d_text" required></textarea>
                     <small>Upload a team member photo here. </small>
-                    <input type="file" class="form-control-file mb-2" placeholder="Choose Image" name="d_image"/>
+                    <input type="file" class="form-control-file mb-2" placeholder="Choose Image" name="d_image" required/>
 
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-dark">Add Member</button>
+                    <button type="submit" class="btn btn-dark">Add Item</button>
                 </div>
             </form>
         </div>
@@ -178,10 +174,10 @@
 <div class="modal fade" id="updateUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form method="post" action="../controllers/TeamController.admin.php" enctype="multipart/form-data">
+            <form method="post" action="../controllers/ServiceController.admin.php" enctype="multipart/form-data">
 
                 <div class="modal-header bg-dark text-white">
-                    <h5 class="modal-title " id="exampleModalLabel">Update User</h5>
+                    <h5 class="modal-title " id="exampleModalLabel">Update Service Item</h5>
                     <button type="button text-white" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -189,17 +185,16 @@
                 <div class="modal-body">
 
                     <input type="hidden" id="updateId" name="d_id_u" value=""/>
-                    <input type="text" class="form-control mb-2" id="updateName" required placeholder="Full Name" name="d_name_u"/>
-                    <input type="text" class="form-control mb-2" id="updateTitle" required placeholder="Email" name="d_title_u"/>
-                    <input type="text" class="form-control mb-2" id="updateShortBio" required placeholder="Username" name="d_short_bio_u"/>
-                    <small>Choose a new image for the team member. </small>
-                    <input type="file" class="form-control-file mb-2" id="updateImage" required placeholder="Image" name="d_image"/>
+                    <input type="text" class="form-control mb-2" id="updateTitle"  placeholder="Email" name="d_title_u"/>
+                    <input type="text" class="form-control mb-2" id="updateText"  placeholder="Username" name="d_text_u"/>
+                    <small>Choose a new image for the service item. </small>
+                    <input type="file" class="form-control-file mb-2" id="updateImage"  placeholder="Image" name="d_image"/>
 
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-dark" name="updateUser">Update User</button>
+                    <button type="submit" class="btn btn-dark" name="updateService">Update Item</button>
                 </div>
             </form>
         </div>
@@ -251,16 +246,14 @@
         $(".user-update-click").click(function() {
 
             let id = $(this).attr("id");
-            let name = $("#nameCellFor"+id).text();
             let title = $("#titleCellFor"+id).text();
-            let bio = $("#bioCellFor"+id).text();
+            let text = $("#textCellFor"+id).text();
 
 
 
 
-            $("#updateName").val(name);
             $("#updateTitle").val(title);
-            $("#updateShortBio").val(bio);
+            $("#updateText").val(text);
 
             $("#updateId").val(id);
 

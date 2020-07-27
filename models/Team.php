@@ -10,7 +10,7 @@ class Team
     private $shortBio = "";
     private  $image = "";
 
-    private function __construct($name, $title, $shortBio, $image)
+    public function __construct($name, $title, $shortBio, $image)
     {
         $this->name = $name;
         $this->title = $title;
