@@ -85,19 +85,23 @@ You can use this class:
     <?php
 
 
+
+
+
             require_once 'models/Service.php';
 
+            $colors = array("background-blue","background-green","background-dark", "background-aqua");
             $items = Service::getItems();
 
             $counter = 0;
             foreach ($items as $item)
             {
                 $counter++;
-            }
+
                ?>
     <!-- SECTION 3 -->
     <section class="grid">
-        <div class="m-12 l-6 padding-2x background-aqua">
+        <div class="m-12 l-6 padding-2x <?php echo($colors[rand(0,count($colors))]);?> ">
             <p class="text-strong text-size-80 text-white"><?php echo $counter; ?></p>
 
             <h2 class="text-size-50 text-line-height-1 text-white"><b><?php  echo($item->getTitle()); ?></b></h2>
@@ -110,7 +114,7 @@ You can use this class:
     </section>
 
     <?php
-
+            }
     ?>
 
 

@@ -210,7 +210,7 @@
                                     </div>
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4">
-                                        <input type="submit" class="btn btn-dark mt-5" value="Change Welcome Text"/>
+                                        <input type="submit" class="btn btn-dark mt-5" value="Change Footer Text"/>
                                     </div>
                                     <div class="col-md-4"></div>
                                 </div>
